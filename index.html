@@ -1,7 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RIA Adventurers Society</title>
+  https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=IM+Fell+English+SC&display=swap
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #f0e6d2;
+      font-family: 'IM Fell English SC', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+    }
+
+    .invitation {
+      background: rgba(30, 30, 30, 0.9);
+      border: 2px solid #c19a6b;
+      padding: 2rem;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 20px #c19a6b;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'Uncial Antiqua', cursive;
+      color: #e0c097;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #c19a6b;
+      background: #2e2e2e;
+      color: #f0e6d2;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background: #c19a6b;
+      border: none;
+      color: #1e1e1e;
+      cursor: pointer;
+    }
+
+    .error {
+      color: #ff6b6b;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      margin-bottom: 1rem;
+      width: 100px;
+      height: auto;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <div class="invitation">
+    <img src="badge.png" alt="RIA Badge" class="badge"> <!-- Replace with your uploaded filename -->
+    <h1>Welcome, Explorer</h1>
+    <p>
+      You have been cordially invited to join the <strong>RIA Adventurers Society</strong>.<br>
+      A journey across Europe's most thrilling realms awaits.<br><br>
+      To proceed, enter the secret codex number:
+    </p>
+    <input type="password" id="pin" placeholder="Enter Code">
+    <br>
+    <button onclick="checkPin()">Unlock</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="steampunk-theme.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function checkPin() {
+      const pin = document.getElementById('pin').value;
+      const error = document.getElementById('error');
+      if (pin === '1925') {
+        window.location.href = 'home.html'; // Change this to your main page
+      } else {
+        error.textContent = 'Incorrect code. Try again, brave explorer.';
+      }
+    }
+  </script>
 </body>
 </html>
+
